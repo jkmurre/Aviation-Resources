@@ -2,6 +2,7 @@ import math
 
     # TODO: Make a GUI.
     # TODO: Isolate function and add if __name__ call. 
+    # TODO: Move functions to separate file/module...
 
 def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: float) -> float:
     """
