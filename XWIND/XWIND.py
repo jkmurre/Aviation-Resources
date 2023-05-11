@@ -1,9 +1,5 @@
 import math
 
-    # TODO: Make a GUI.
-    # TODO: Isolate function and add if __name__ call. 
-    # TODO: Move functions to separate file/module...
-
 def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: float) -> float:
     """
     Calculates the crosswind component given the runway heading, wind speed, and wind heading.
@@ -23,6 +19,7 @@ def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: 
     crosswind = calculate_crosswind(runway_heading, wind_speed, wind_heading)
     print(f"The crosswind component is {crosswind:.2f} knots.")
     """
+    
     # Convert the runway heading and wind heading from degrees to radians
     runway_heading = math.radians(runway_heading)
     wind_heading = math.radians(wind_heading)
