@@ -6,7 +6,7 @@ def main():
 
     window = Tk()
     window.title('Crosswind Component Calculator')
-    window.geometry('400x230')
+    window.geometry('400x400')
     window.resizable(False,False)
 
     GUI(window)

@@ -3,6 +3,7 @@ from xwind import *
 
 class GUI:
     def __init__(self, window):
+
         # Size and init window 
         self.window = window 
 
@@ -35,13 +36,20 @@ class GUI:
         self.label_crosswind.pack(pady=10)
 
         # Submit button
+        self.frame_submit_button = Frame(self.window)
         self.button_submit = Button(self.window, text="Submit", command=self.submitted)
         self.button_submit.pack(pady=10)
+
+        # Reset button
+        self.frame_reset_button = Frame(self.window)
+        self.button_reset = Button(self.window, text="Reset", command=self.reset)
+        self.button_reset.pack(pady=10)
 
         # Set initial focus 
         self.entry_runway_heading.focus()
 
     def submitted(self):
+
         # Get values
         runway_heading = float(self.entry_runway_heading.get())
         wind_speed = float(self.entry_wind_speed.get())
@@ -52,3 +60,10 @@ class GUI:
 
         # Update the label with the crosswind component 
         self.label_crosswind.config(text=f"The crosswind component is {crosswind:.2f} knots.")
+    
+    def reset(self):
+        self.entry_runway_heading.delete(0,END)
+        self.entry_wind_heading.delete(0,END)
+        self.entry_wind_speed.delete(0,END)
+
+        self.label_crosswind.config(text="")
