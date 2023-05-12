@@ -1,8 +1,27 @@
 from tkinter import *
 from xwind import *
 
+'''
+
+Makes up the Tkinter GUI file. 
+
+Includes widgets and labels for the runway heading, wind speed, and wind heading, as well as a result label, submit button and reset button. 
+
+'''
+
 class GUI:
     def __init__(self, window):
+
+        '''
+        
+        Initialize GUI instance.
+
+        
+        Args: Tkinter window object.
+
+        Returns: None
+        
+        '''
 
         # Size and init window 
         self.window = window 
@@ -32,6 +51,7 @@ class GUI:
         self.frame_wind_heading.pack(anchor='w', pady=10)
 
         # Create label for the crosswind component 
+        self.frame_submit_button = Frame(self.window)
         self.label_crosswind = Label(self.window, text="")
         self.label_crosswind.pack(pady=10)
 
@@ -50,6 +70,14 @@ class GUI:
 
     def submitted(self):
 
+        '''
+        
+        Executes the calculate_crosswind function from xwind.py when the user clicks it and then updates the result label. 
+
+        Returns: None
+
+        '''
+
         # Get values
         runway_heading = float(self.entry_runway_heading.get())
         wind_speed = float(self.entry_wind_speed.get())
@@ -62,8 +90,19 @@ class GUI:
         self.label_crosswind.config(text=f"The crosswind component is {crosswind:.2f} knots.")
     
     def reset(self):
+        '''
+
+        Executes when the user clicks the Reset button. It clears the entries and the crosswind 
+        component label.
+
+        Returns: None
+
+        '''
+
+        # Clear the text fields
         self.entry_runway_heading.delete(0,END)
         self.entry_wind_heading.delete(0,END)
         self.entry_wind_speed.delete(0,END)
 
+        # Clear the result label
         self.label_crosswind.config(text="")

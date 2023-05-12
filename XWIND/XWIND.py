@@ -1,7 +1,9 @@
 import math
 
 def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: float) -> float:
-    """
+    
+    '''
+
     Calculates the crosswind component given the runway heading, wind speed, and wind heading.
 
     Args:
@@ -18,8 +20,9 @@ def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: 
     wind_heading = int(input("Wind Heading: "))
     crosswind = calculate_crosswind(runway_heading, wind_speed, wind_heading)
     print(f"The crosswind component is {crosswind:.2f} knots.")
-    """
-    
+
+    '''
+
     # Convert the runway heading and wind heading from degrees to radians
     runway_heading = math.radians(runway_heading)
     wind_heading = math.radians(wind_heading)
