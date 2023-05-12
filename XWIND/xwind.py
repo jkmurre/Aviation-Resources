@@ -28,9 +28,9 @@ def calculate_crosswind(runway_heading: float, wind_speed: float, wind_heading: 
     wind_heading = math.radians(wind_heading)
 
     # Calculate the angle between the runway heading and wind heading
-    angle = abs(wind_heading - runway_heading)
+    angle = wind_heading - runway_heading
 
     # Calculate the crosswind component using the wind speed and the angle
-    crosswind = math.sin(angle) * wind_speed
+    crosswind = abs(math.sin(angle) * wind_speed)
 
     return crosswind
