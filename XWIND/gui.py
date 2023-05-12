@@ -77,18 +77,24 @@ class GUI:
         Returns: None
 
         '''
+        try:
+            # Get values
+            runway_heading = float(self.entry_runway_heading.get())
+            wind_speed = float(self.entry_wind_speed.get())
+            wind_heading = float(self.entry_wind_heading.get())
+            
+            if not (0 <= runway_heading < 360) or wind_speed < 0 or not (0 <= wind_heading < 360):
+                raise ValueError("Invalid input")
 
-        # Get values
-        runway_heading = float(self.entry_runway_heading.get())
-        wind_speed = float(self.entry_wind_speed.get())
-        wind_heading = float(self.entry_wind_heading.get())
+            # Calculate crosswind component 
+            crosswind = calculate_crosswind(runway_heading, wind_speed, wind_heading)
 
-        # Calculate crosswind component 
-        crosswind = calculate_crosswind(runway_heading, wind_speed, wind_heading)
-
-        # Update the label with the crosswind component 
-        self.label_crosswind.config(text=f"The crosswind component is {crosswind:.2f} knots.")
-    
+            # Update the label with the crosswind component 
+            self.label_crosswind.config(text=f"The crosswind component is {crosswind:.2f} knots.")
+            
+        except ValueError as e:
+            self.label_crosswind.config(text=str(e))
+            
     def reset(self):
         '''
 
